@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <form id="demo">
+        <input type="text" v-model="input1" />
+        <input
+                type="submit"
+                value="添加"
+                class="col-md-1"
+                v-on:click="fn"
+        />
+    </form>
+    <div id="app-4">
+        <ol>
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ol>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el:'#app-4',
+        data:{
+            todos:[
+                {text:'transfor 4'},
+                {text:'iron man'},
+                {text:'wolf 2'},
+            ]
+        }
+    }) ;
+ </script>
+</html>

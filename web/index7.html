@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <button onclick="fn()">add</button>
+    <div id="app-7">
+        <input  type="text"/>
+        <ol>
+            <!--创建一个 todo-item 组建实例-->
+            <todo-item
+                v-for="item in list"
+                v-bind:todo="item"
+                v-bind:key="item.id"
+            ></todo-item>
+        </ol>
+    </div>
+</body>
+<script>
+    // 创建一个实例
+   Vue.component('todo-item',{
+       props:['todo'],
+       template:"<li>{{todo.text}}</li>"
+   }) ;
+   var app7 = new Vue({
+       el:'#app-7',
+       data:{
+           list:[
+               {id:0,text:'vogetables'},
+               {id:1,text:'milk'},
+               {id:2,text:'other food'}
+           ]
+       }
+   })
+    function fn(){
+       app7.list.push({id:3,text:'have dinner'}) ;
+    }
+</script>
+</html>
